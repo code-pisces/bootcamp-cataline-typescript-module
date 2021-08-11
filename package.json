@@ -1,0 +1,16 @@
+{
+  "name": "curso-typescript",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node-dev --respawn --quiet --clear ./src/main.ts"
+  },
+  "keywords": [],
+  "author": "Gustavo Amorim",
+  "license": "MIT",
+  "devDependencies": {
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.3.5"
+  }
+}
