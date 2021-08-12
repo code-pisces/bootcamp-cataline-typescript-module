@@ -29,7 +29,7 @@ function showInformation(name: string = "Yung"): void {
   console.log(name);
 }
 
-// never: usado em exceções como fuções que geram erros ou loops infinitos
+// never: usado em exceções como funções que geram erros ou loops infinitos
 
 function error(message: string): never {
     throw new Error(message);
@@ -112,4 +112,114 @@ const inputName = document.querySelector("#name") as HTMLInputElement;
 
 inputName.value;
 
+*/
+
+// TIPANDO OBJETOS
+
+/* mostrar a cidade do usuário
+type UF = "PE" | "SP" | "MG"
+
+interface User {
+  name: string,
+  address: { 
+    city: string,
+		UF: UF
+  }
+
+  sayHello: () => void;
+}
+
+function showCity(user: User) {
+	user.sayHello = () => console.log("Cataline");
+	return user.address.city;
+}
+
+let users: User[];
+users[0].address.city// mesmo sem valor o ts fornece a intelisense
+
+
+interface User {
+  name: string;
+  address?: {
+    city: string;
+    UF: string;
+  };
+}
+
+function showCity(user: User) {
+  return user.address ? user.address.city : "não existe";
+
+
+function showCity(user: User) {
+  return user.address?.city;
+}
+
+const response = {
+  name: "Gustavo",
+  address: { city: "Tangamandápio", UF: "SND" },
+};
+
+console.log(showCity(response));
+
+<---------- Type objects ---------->
+
+interface User {
+  readonly name: string;
+	age: number;
+}
+
+let user: User = {
+  name: "Gustavo Amorim",
+	age: 15,
+}
+
+user.age = 23
+user.name = 'João Silva'
+
+interface Veiculo {
+  rodas: number;
+	acelerar: () => void;
+	frear: () => void;
+}
+
+interface Moto extends Veiculo { // para unir duas interfaces
+	capacete: boolean;
+	empinar: () => void;
+}
+
+let bross: Moto;
+bross.empinar;
+
+interface Veiculo {
+  rodas: number;
+	acelerar: () => void;
+	frear?: () => void;
+}
+
+class CriarVeiculo implements Veiculo {
+  rodas: number;
+
+  constructor(rodas: number) {
+    this.rodas = rodas
+  }
+  
+  acelerar() {
+    console.log('qualquer coisa');
+  }
+}
+
+interface Post {
+  id: number;
+	title: string;
+	description: string;
+}
+
+// Pick & Omit
+
+//type PostPreview = Pick<Post, 'id' | 'title'>
+type PostPreview = Omit<Post, 'id' | 'title'>
+
+let post: PostPreview;
+
+post.description;
 */
