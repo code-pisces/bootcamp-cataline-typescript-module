@@ -222,4 +222,43 @@ type PostPreview = Omit<Post, 'id' | 'title'>
 let post: PostPreview;
 
 post.description;
+
+<---------- Permitindo Javascript ---------->
+
+import { sum } from './calculator.js';
+
+console.log(sum(1, 2))
+
+<---------- Lidando com dependências---------->
+
+import axios from "axios";
+import SimpleBar from "simplebar";
+import onscreen from "onscreen";
+
+const content = document.querySelector("#content") as HTMLElement;
+
+const simplebar = new SimpleBar(content, { autoHide: true });
+
+axios.get("/todos", {});
+
+import users from "@/controllers/http/Users";
+
+users();
+
+<---------- Decorators -------->
+// Decorator - para fazer anotação da versão da api
+
+function setApiVersion(apiVersion: string) {
+  return (constructor: any) => {
+    return class extends constructor {
+      version = apiVersion;
+    };
+  };
+}
+
+@setApiVersion("1.0.0")
+class API {}
+
+console.log(new API())
+
 */
