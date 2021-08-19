@@ -4,13 +4,21 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "dev": "ts-node-dev --respawn --quiet --clear ./src/main.ts"
+    "dev": "ts-node-dev -r tsconfig-paths/register --respawn --quiet --clear ./src/main.ts"
   },
   "keywords": [],
   "author": "Gustavo Amorim",
   "license": "MIT",
   "devDependencies": {
+    "@types/node": "^16.6.1",
+    "@types/simplebar": "^5.3.3",
     "ts-node-dev": "^1.1.8",
+    "tsconfig-paths": "^3.10.1",
     "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "onscreen": "^1.4.0",
+    "simplebar": "^5.3.5"
   }
 }
